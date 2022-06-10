@@ -1,0 +1,16 @@
+export default Images = {
+  logo: require('../assets/logo.png'),
+  youtube: require('../assets/youtube.png'),
+  spotify: require('../assets/spotify.png'),
+  hbo: require('../assets/HBO GO.png'),
+  masterCard: require('../assets/MasterCard.png'),
+  avatar: require('../assets/Image.png'),
+  netflix: require('../assets/netflix.png'),
+  oneDrive: require('../assets/onedrive.png'),
+  frame: require('../assets/Frame.png'),
+  home: require('../assets/Home.png'),
+  budget: require('../assets/Budgets.png'),
+  card: require('../assets/Card.png'),
+  calendar: require('../assets/Calender.png'),
+  setting: require('../assets/Settings.png'),
+};
