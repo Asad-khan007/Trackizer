@@ -50,7 +50,7 @@ const Start = ({navigation}) => {
         style={{
           flex: 2,
           justifyContent: 'center',
-          paddingBottom: 10,
+          paddingBottom: 8,
         }}>
         <PrimaryButton
           title="Get Started"

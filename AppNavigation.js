@@ -181,7 +181,7 @@ const AppNavigatoin = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{headerShown: false}}>
-        {/* <Stack.Screen name="AuthApp" component={AuthStack} /> */}
+        <Stack.Screen name="AuthApp" component={AuthStack} />
         <Stack.Screen name="HomeApp" component={HomeStack} />
       </Stack.Navigator>
     </NavigationContainer>

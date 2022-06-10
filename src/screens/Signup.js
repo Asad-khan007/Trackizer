@@ -1,7 +1,14 @@
-import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TextInput,
+  SafeAreaView,
+} from 'react-native';
 import React from 'react';
 import Images from '../config/Images';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 // import {useNavigation} from '@react-navigation/native';
 
@@ -46,6 +53,7 @@ const Signup = ({navigation}) => {
             borderWidth: 1,
             borderRadius: 10,
             width: '100%',
+            height: 50,
           }}
         />
         <Text
@@ -63,6 +71,7 @@ const Signup = ({navigation}) => {
             borderWidth: 1,
             borderRadius: 10,
             width: '100%',
+            height: 50,
           }}
         />
       </View>
@@ -109,7 +118,7 @@ const Signup = ({navigation}) => {
         style={{
           paddingTop: 25,
           paddingBottom: 20,
-          color: '#666680',
+          color: Colors.gray30,
         }}>
         use 8 and more characters with a mix of letters, numbers & symbols
       </Text>
@@ -127,6 +136,7 @@ const Signup = ({navigation}) => {
           position: 'absolute',
           top: 600,
           alignItems: 'center',
+          marginTop: 60,
         }}>
         <Text
           style={{
@@ -134,6 +144,7 @@ const Signup = ({navigation}) => {
             fontSize: 16,
             color: 'white',
             fontWeight: '500',
+            paddingVertical: 10,
           }}>
           Already have an account ?
         </Text>

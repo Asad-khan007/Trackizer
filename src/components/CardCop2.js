@@ -2,19 +2,19 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Colors from '../config/Colors';
 
-const CardCop = ({subs, color}) => {
+const CardCop2 = ({subs, color}) => {
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardLight}></View>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Active Subs</Text>
-        <Text style={styles.title2}>200</Text>
+        <Text style={styles.title}>Highest Subs</Text>
+        <Text style={styles.title2}>$20</Text>
       </View>
     </View>
   );
 };
 
-export default CardCop;
+export default CardCop2;
 
 const styles = StyleSheet.create({
   cardContainer: {
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   cardLight: {
     width: 60,
     height: 2,
-    backgroundColor: Colors.primary,
+    backgroundColor: Colors.purple,
   },
   titleContainer: {
     width: '100%',
@@ -37,10 +37,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     marginTop: 18,
-    paddingHorizontal: 8,
   },
   title: {
-    width: 68,
+    width: 80,
     height: 18,
     fontSize: 12,
     fontWeight: '600',

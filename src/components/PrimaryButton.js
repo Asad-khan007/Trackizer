@@ -13,7 +13,7 @@ const PrimaryButton = ({onPress, color, title}) => {
         borderRadius: 25,
         alignItems: 'center',
         justifyContent: 'center',
-        marginVertical: 6,
+        marginVertical: 8,
         boxShadow: 'rgba(255, 121, 102, 0.5)',
       }}>
       <Text
