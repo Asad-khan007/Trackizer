@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, Image, TextInput, Switch} from 'react-native';
 import React, {useState} from 'react';
 import Images from '../config/Images';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 import {NavigationContainer} from '@react-navigation/native';
 
@@ -13,7 +13,7 @@ const Signin = ({navigation}) => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.gray80,
         paddingHorizontal: 20,
       }}>
       <Image

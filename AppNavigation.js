@@ -89,7 +89,7 @@ const Mytabs = () => {
           },
         }}
       />
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Plus"
         component={Plus}
         options={{
@@ -113,7 +113,7 @@ const Mytabs = () => {
             );
           },
         }}
-      />
+      /> */}
       <Tab.Screen
         name="Calendar"
         component={Calendar}

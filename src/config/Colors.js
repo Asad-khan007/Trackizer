@@ -4,7 +4,7 @@ const Colors = {
   gray70: '#353542',
   gray60: '#4E4E61',
   gray50: '#666680',
-  gray40: '#83839C',
+  gray40: 'rgba(78, 78, 97, 0.2)',
   gray30: '#A2A2B5',
   gray20: '#C1C1CD',
   gray10: '#E0E0E6',
@@ -15,6 +15,7 @@ const Colors = {
   purple: '#AD7BFF',
   green: '#00FAD9',
   black: '#282833',
+  title: '#83839C',
+  btnColor: 'rgba(255, 255, 255, 0.1)',
 };
-
 export default Colors;

@@ -9,12 +9,11 @@ const PrimaryButton = ({onPress, color, title}) => {
       style={{
         width: 324,
         height: 50,
-        backgroundColor: color,
+        backgroundColor: Colors.gray40,
         borderRadius: 25,
         alignItems: 'center',
         justifyContent: 'center',
-        marginVertical: 8,
-        boxShadow: 'rgba(255, 121, 102, 0.5)',
+        marginVertical: 10,
       }}>
       <Text
         style={{

@@ -1,7 +1,7 @@
 import {Text, View, Image, TouchableOpacity} from 'react-native';
 import React from 'react';
 import Images from '../config/Images';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 
 const Start = ({navigation}) => {
@@ -11,7 +11,7 @@ const Start = ({navigation}) => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.gray80,
       }}>
       <Image
         source={Images.logo}

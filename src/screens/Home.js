@@ -1,4 +1,12 @@
-import {StyleSheet, Text, View, Image, SafeAreaView} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  SafeAreaView,
+  TouchableOpacity,
+  ScrollView,
+} from 'react-native';
 import React, {useState} from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
@@ -7,39 +15,40 @@ import HomeBtn from '../components/HomeBtn';
 import CardCop3 from '../components/CardCop3';
 import CardCop2 from '../components/CardCop2';
 import CardCop from '../components/CardCop';
+import TipsCard from '../components/TipsCard';
 
 const Home = () => {
   const [option, setOption] = useState('option1');
-  // const [subscribtion, setSubscribtion] = useState('Up XM');
+  const [foused, setFoused] = useState(false);
 
   return (
     <View style={styles.mainContainer}>
       <View style={styles.headerContainer}>
-        <Image
-          source={Images.setting}
+        {/* <TouchableOpacity
           style={{
-            height: 24,
-            tintColor: Colors.gray20,
-            width: 24,
-            zIndex: 99,
             position: 'absolute',
             left: 360,
             top: 50,
-          }}
-        />
+          }}>
+          <Image
+            source={Images.setting}
+            style={{
+              height: 24,
+              tintColor: Colors.gray20,
+              width: 24,
+              zIndex: 99,
+            }}
+          />
+        </TouchableOpacity> */}
         <View style={{marginTop: 5}}>
           <AnimatedCircularProgress
             rotation={216}
             size={290}
             width={13}
-            fill={60}
+            fill={75}
             tintColor={Colors.primary}
             backgroundColor="#3d5875"
-            // style={{}}
             padding={10}
-            // renderCap={({center}) => (
-            //   <View cx={center.x} cy={center.y} r="10" fill="blue" />
-            // )}
             lineCap="round"
             arcSweepAngle={290}
           />
@@ -62,17 +71,17 @@ const Home = () => {
               fontSize: 40,
               fontWeight: '700',
             }}>
-            $ 2000
+            5515,151
           </Text>
           <Text
             style={{
               fontSize: 16,
-              color: Colors.gray40,
-              paddingHorizontal: 10,
+              color: Colors.title,
               paddingVertical: 4,
               fontWeight: '600',
+              marginTop: '2%',
             }}>
-            This months bills
+            Global Confirmed Cases
           </Text>
           <HomeBtn />
         </View>
@@ -92,12 +101,83 @@ const Home = () => {
       <View
         style={{
           height: 50,
-          width: 330,
+          width: 340,
           backgroundColor: Colors.gray80,
           marginHorizontal: 20,
           marginVertical: 20,
-          borderRadius: 10,
-        }}></View>
+          borderRadius: 26,
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: 'row',
+        }}>
+        <TouchableOpacity
+          onPress={() => {
+            setFoused(!foused);
+          }}
+          style={{
+            flex: 1,
+            backgroundColor: foused ? Colors.gray50 : 'transparent',
+            height: '80%',
+            // width: '60%',
+            borderRadius: 20,
+            alignItems: 'center',
+            justifyContent: 'center',
+            marginLeft: 6,
+          }}>
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: '600',
+              color: foused ? Colors.white : Colors.gray20,
+            }}>
+            Tracker
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          onPress={() => {
+            setFoused(!foused);
+          }}
+          style={{
+            flex: 1,
+            backgroundColor: !foused ? Colors.gray50 : 'transparent',
+            height: '100%',
+            alignItems: 'center',
+            justifyContent: 'center',
+            height: '80%',
+            // width: '60%',
+            borderRadius: 20,
+            marginRight: 6,
+          }}>
+          <Text
+            style={{
+              fontSize: 16,
+              fontWeight: '600',
+              color: !foused ? Colors.gray20 : Colors.gray20,
+            }}>
+            Symtomes
+          </Text>
+        </TouchableOpacity>
+      </View>
+      {!foused && (
+        <ScrollView showsVerticalScrollIndicator={false}>
+          <TipsCard />
+          <TipsCard />
+          <TipsCard />
+        </ScrollView>
+      )}
+      {foused && (
+        <View
+          style={{
+            backgroundColor: Colors.gray80,
+            width: '95%',
+            height: '28%',
+            borderRadius: 10,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Image source={Images.map} resizeMode="contain" />
+        </View>
+      )}
     </View>
   );
 };
@@ -113,7 +193,7 @@ const styles = StyleSheet.create({
   headerContainer: {
     height: 455,
     width: 420,
-    backgroundColor: Colors.gray70,
+    backgroundColor: Colors.gray80,
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
     alignItems: 'center',

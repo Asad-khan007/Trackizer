@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TextInput,
-  SafeAreaView,
-} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
 import React from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
@@ -21,7 +14,7 @@ const Signup = ({navigation}) => {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.gray80,
         paddingHorizontal: 20,
       }}>
       <Image

@@ -7,8 +7,8 @@ const CardCop = ({subs, color}) => {
     <View style={styles.cardContainer}>
       <View style={styles.cardLight}></View>
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Active Subs</Text>
-        <Text style={styles.title2}>200</Text>
+        <Text style={styles.title}>Deceased</Text>
+        <Text style={styles.title2}>20315</Text>
       </View>
     </View>
   );
@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     height: 18,
     fontSize: 12,
     fontWeight: '600',
-    color: Colors.gray60,
+    color: Colors.gray30,
   },
   title2: {
     height: 20,

@@ -13,4 +13,5 @@ export default Images = {
   card: require('../assets/Card.png'),
   calendar: require('../assets/Calender.png'),
   setting: require('../assets/Settings.png'),
+  map: require('../assets/map.png'),
 };
