@@ -3,9 +3,14 @@ import React, {useState} from 'react';
 import Colors from '../config/Colors';
 
 const HomeBtn = () => {
+  const [picker, setPicker] = useState(false);
+
   return (
     <>
       <TouchableOpacity
+        onPress={() => {
+          setPicker(!picker);
+        }}
         style={{
           backgroundColor: Colors.btnColor,
           height: 32,
@@ -22,6 +27,7 @@ const HomeBtn = () => {
           Select your Contry
         </Text>
       </TouchableOpacity>
+      <CountryPicker visible={picker} />
     </>
   );
 };

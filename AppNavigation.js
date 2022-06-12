@@ -114,7 +114,7 @@ const Mytabs = () => {
           },
         }}
       /> */}
-      <Tab.Screen
+      {/* <Tab.Screen
         name="Calendar"
         component={Calendar}
         options={{
@@ -151,7 +151,7 @@ const Mytabs = () => {
             );
           },
         }}
-      />
+      /> */}
     </Tab.Navigator>
   );
 };

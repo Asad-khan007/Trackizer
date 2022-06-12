@@ -30,9 +30,21 @@ const Start = ({navigation}) => {
           // paddingTop: 28,
           marginTop: '60%',
         }}>
-        <PrimaryButton title="Sign up with Apple" color={Colors.dark} />
-        <PrimaryButton title="Sign up with Google" color={Colors.light} />
-        <PrimaryButton title="Sign up with Facebook" color={Colors.primary} />
+        <PrimaryButton
+          image={Images.apple}
+          title="Sign up with Apple"
+          color={Colors.gray70}
+        />
+        <PrimaryButton
+          image={Images.google}
+          title="Sign up with Google"
+          color={'#898F9C'}
+        />
+        <PrimaryButton
+          image={Images.facebook}
+          title="Sign up with Facebook"
+          color={'#4267B2'}
+        />
         <Text
           style={{
             padding: 30,

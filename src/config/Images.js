@@ -14,4 +14,10 @@ export default Images = {
   calendar: require('../assets/Calender.png'),
   setting: require('../assets/Settings.png'),
   map: require('../assets/map.png'),
+  facebook: require('../assets/Facebook.png'),
+  google: require('../assets/Google.png'),
+  apple: require('../assets/Vector.png'),
+  confirmed: require('../assets/virus.png'),
+  recovered: require('../assets/recovered.png'),
+  deceased: require('../assets/dead.png'),
 };

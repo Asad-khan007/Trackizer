@@ -11,15 +11,17 @@ import React, {useState} from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
-import HomeBtn from '../components/HomeBtn';
+// import HomeBtn from '../components/HomeBtn';
 import CardCop3 from '../components/CardCop3';
 import CardCop2 from '../components/CardCop2';
 import CardCop from '../components/CardCop';
 import TipsCard from '../components/TipsCard';
+import CountryPicker, {DARK_THEME} from 'react-native-country-picker-modal';
 
 const Home = () => {
   const [option, setOption] = useState('option1');
   const [foused, setFoused] = useState(false);
+  const [country, setCountry] = useState(null);
 
   return (
     <View style={styles.mainContainer}>
@@ -40,12 +42,12 @@ const Home = () => {
             }}
           />
         </TouchableOpacity> */}
-        <View style={{marginTop: 5}}>
+        <View style={{marginTop: 15}}>
           <AnimatedCircularProgress
             rotation={216}
             size={290}
             width={13}
-            fill={75}
+            fill={55}
             tintColor={Colors.primary}
             backgroundColor="#3d5875"
             padding={10}
@@ -83,7 +85,22 @@ const Home = () => {
             }}>
             Global Confirmed Cases
           </Text>
-          <HomeBtn />
+          <CountryPicker
+            onSelect={item => {
+              setCountry(item);
+              console.log(item.name, item.region);
+            }}
+            theme={DARK_THEME}
+            containerButtonStyle={{
+              backgroundColor: Colors.gray60,
+              height: 32,
+              width: 145,
+              alignItems: 'center',
+              justifyContent: 'center',
+              borderRadius: 14,
+              marginTop: 15,
+            }}
+          />
         </View>
         <View
           style={{
@@ -159,7 +176,9 @@ const Home = () => {
         </TouchableOpacity>
       </View>
       {!foused && (
-        <ScrollView showsVerticalScrollIndicator={false}>
+        <ScrollView
+          style={{borderRadius: 10}}
+          showsVerticalScrollIndicator={false}>
           <TipsCard />
           <TipsCard />
           <TipsCard />
@@ -169,8 +188,9 @@ const Home = () => {
         <View
           style={{
             backgroundColor: Colors.gray80,
-            width: '95%',
-            height: '28%',
+            // backgroundColor: 'red',
+            width: 360,
+            height: 200,
             borderRadius: 10,
             alignItems: 'center',
             justifyContent: 'center',

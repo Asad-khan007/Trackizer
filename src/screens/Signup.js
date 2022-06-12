@@ -41,12 +41,17 @@ const Signup = ({navigation}) => {
           E-mail address
         </Text>
         <TextInput
+          placeholderTextColor={Colors.gray60}
+          placeholder="Enter your email"
           style={{
             borderColor: '#fff',
             borderWidth: 1,
             borderRadius: 10,
             width: '100%',
             height: 50,
+            fontSize: 18,
+            paddingHorizontal: 10,
+            color: Colors.white,
           }}
         />
         <Text
@@ -59,12 +64,17 @@ const Signup = ({navigation}) => {
           Password
         </Text>
         <TextInput
+          placeholderTextColor={Colors.gray60}
+          placeholder="Enter your password"
           style={{
             borderColor: '#fff',
             borderWidth: 1,
             borderRadius: 10,
             width: '100%',
             height: 50,
+            fontSize: 18,
+            paddingHorizontal: 10,
+            color: Colors.white,
           }}
         />
       </View>
