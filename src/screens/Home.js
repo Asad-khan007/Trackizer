@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   TouchableOpacity,
   ScrollView,
+  Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
 import Images from '../config/Images';
@@ -24,7 +25,10 @@ const Home = () => {
   const [country, setCountry] = useState(null);
 
   return (
-    <View style={styles.mainContainer}>
+    <ScrollView style={styles.mainContainer}>
+     <View style={{
+      alignItems:"center"
+     }} > 
       <View style={styles.headerContainer}>
         {/* <TouchableOpacity
           style={{
@@ -47,7 +51,7 @@ const Home = () => {
             rotation={216}
             size={290}
             width={13}
-            fill={55}
+            fill={60}
             tintColor={Colors.primary}
             backgroundColor="#3d5875"
             padding={10}
@@ -60,13 +64,13 @@ const Home = () => {
             alignItems: 'center',
             justifyContent: 'center',
             position: 'absolute',
-            top: 110,
+            top:  Dimensions.get("window").height / 5.5 ,
           }}>
-          <Image
+          {/* <Image
             source={Images.logo}
             style={{height: 20, width: 110, marginBottom: 20}}
             resizeMode="contain"
-          />
+          /> */}
           <Text
             style={{
               color: Colors.white,
@@ -198,7 +202,8 @@ const Home = () => {
           <Image source={Images.map} resizeMode="contain" />
         </View>
       )}
-    </View>
+      </View>
+    </ScrollView>
   );
 };
 
@@ -207,7 +212,6 @@ export default Home;
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    alignItems: 'center',
     backgroundColor: Colors.gray100,
   },
   headerContainer: {

@@ -6,6 +6,7 @@ import HealthCard from '../components/HealthCard';
 import Images from '../config/Images';
 
 const Spending = () => {
+  
   return (
     <>
       <SafeAreaView
@@ -36,7 +37,7 @@ const Spending = () => {
             rotation={270}
             size={300}
             width={14}
-            fill={60}
+            fill={80}
             tintColor={Colors.primary}
             backgroundColor="#3d5875"
             padding={10}
@@ -115,16 +116,16 @@ const Spending = () => {
             paddingVertical: 5,
             justifyContent: 'center',
           }}>
+            <HealthCard
+              icon={Images.recovered}
+              title="Recovered Cases"
+              progress={'20%'}
+              color={Colors.primary}
+            />
           <HealthCard
             icon={Images.confirmed}
             title="Confirmed Cases"
             progress={'45%'}
-            color={Colors.primary}
-          />
-          <HealthCard
-            icon={Images.recovered}
-            title="Recovered Cases"
-            progress={'20%'}
             color={Colors.green}
           />
           <HealthCard
@@ -140,5 +141,3 @@ const Spending = () => {
 };
 
 export default Spending;
-
-const styles = StyleSheet.create({});

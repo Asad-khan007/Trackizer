@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   cardLight: {
     width: 60,
     height: 2,
-    backgroundColor: Colors.purple,
+    backgroundColor: Colors.primary
   },
   titleContainer: {
     width: '100%',
