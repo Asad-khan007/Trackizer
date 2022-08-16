@@ -1,10 +1,17 @@
-import {StyleSheet, Text, View, Image, TouchableOpacity} from 'react-native';
+import {
+  Text, 
+  View, 
+  Image
+} from 'react-native';
 import React from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 
 const Start = ({navigation}) => {
+
+  // const Navigation = useNavigation();
+
   return (
     <View
       style={{
@@ -36,14 +43,14 @@ const Start = ({navigation}) => {
 
       <Text
         style={{
-          paddingTop: 50,
+          marginTop: 60,
           color: Colors.white,
           fontSize: 15,
           fontWeight: '400',
           flex: 1,
         }}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam
-        quibusdam animi impedit?
+        quibusdam animi impedit ?
       </Text>
 
       <View
@@ -59,7 +66,9 @@ const Start = ({navigation}) => {
             navigation.navigate('Login');
           }}
         />
-        <PrimaryButton title="Already have an account" color={Colors.dark} />
+        {/* <PrimaryButton onPress={()=>{
+          navigation.navigate("Login")
+        }} title="Already have an account ?" color={Colors.dark} /> */}
       </View>
     </View>
   );

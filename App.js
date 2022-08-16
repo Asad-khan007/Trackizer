@@ -1,19 +1,49 @@
-import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import {StyleSheet, Text, View, StatusBar, Platform, KeyboardAvoidingView} from 'react-native';
+import React,{Component} from 'react';
 import AppNavigation from './AppNavigation';
 import Start from './src/screens/Start';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
+import AppNavigatoin from './AppNavigation';
 
-const App = () => {
-  return (
-    <>
-      <AppNavigation />
-    </>
-  );
-};
+class App extends Component {
+  render() {
+    return (
+      <KeyboardAvoidingView style={{ flex: 1}} >
+        <GestureHandlerRootView style={{flex: 1}}>
+          <StatusBar
+            translucent={true}
+            backgroundColor="transparent"
+            barStyle="dark-content"
+          />
+          <AppNavigatoin />
+          {/* <Provider store={store}>
+            <Loader />
+            <Nav />
+            <Toast />
+          </Provider> */}
+        </GestureHandlerRootView>
+      </KeyboardAvoidingView>
+    );
+  }
+}
+
 
 export default App;
 
-const styles = StyleSheet.create({});
+// function Wrapper({children}) {
+//   if (Platform.OS === 'ios')
+//     return (
+//       <KeyboardAvoidingView
+//         style={{flex: 1}}
+//         behavior="padding"
+//         // keyboardVerticalOffset={20}
+//       >
+//         {children}
+//       </KeyboardAvoidingView>
+//     );
+//   return <View style={{flex: 1}}>{children}</View>;
+
+// const styles = StyleSheet.create({});
 
 // /**
 //  * Sample React Native App

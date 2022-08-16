@@ -1,4 +1,4 @@
-import {StyleSheet, Text, View, Image, TextInput} from 'react-native';
+import {StyleSheet, Text, View, Image, TextInput, Dimensions, ScrollView} from 'react-native';
 import React from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
@@ -9,6 +9,7 @@ const Signup = ({navigation}) => {
   // const navigation = useNavigation();
 
   return (
+    <ScrollView style={{flex: 1, backgroundColor:Colors.gray80}}>
     <View
       style={{
         flex: 1,
@@ -29,8 +30,8 @@ const Signup = ({navigation}) => {
       <View
         style={{
           justifyContent: 'center',
-          paddingTop: 18,
           width: '100%',
+          marginTop: Dimensions.get("screen").height / 5
         }}>
         <Text
           style={{
@@ -132,12 +133,13 @@ const Signup = ({navigation}) => {
         color={Colors.primary}
         title="Get Started , It's free !"
       />
-      <View
+      {/* <View
         style={{
-          height: 90,
-          width: 330,
-          position: 'absolute',
-          top: 600,
+          // height: 90,
+          // width: 330,
+          // position: 'absolute',
+          // top: Dimensions.get("screen").height / 48,
+          margin: 10,
           alignItems: 'center',
           marginTop: 60,
         }}>
@@ -153,13 +155,15 @@ const Signup = ({navigation}) => {
         </Text>
         <PrimaryButton
           onPress={() => {
-            navigation.navigate('Signup');
+            navigation.navigate('Login');
           }}
-          color={Colors.primary}
+          color={Colors.gray60}
           title="Sign Up"
+         
         />
-      </View>
+      </View> */}
     </View>
+    </ScrollView>
   );
 };
 

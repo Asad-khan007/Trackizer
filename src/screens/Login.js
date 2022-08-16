@@ -1,4 +1,4 @@
-import {Text, View, Image, TouchableOpacity} from 'react-native';
+import {Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
 import React from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
@@ -28,7 +28,7 @@ const Start = ({navigation}) => {
           alignItems: 'center',
           justifyContent: 'center',
           // paddingTop: 28,
-          marginTop: '60%',
+          marginTop: Dimensions.get("screen").height / 3 ,
         }}>
         <PrimaryButton
           image={Images.apple}
@@ -48,11 +48,11 @@ const Start = ({navigation}) => {
         <Text
           style={{
             padding: 30,
-            fontSize: 15,
-            color: 'black',
+            fontSize: 18,
+            color: 'white',
             fontWeight: '500',
           }}>
-          Or
+          OR
         </Text>
         <PrimaryButton
           title="Sign up with Email"
