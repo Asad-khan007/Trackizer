@@ -32,7 +32,7 @@ const Home = ({navigation}) => {
       <View style={styles.headerContainer}>
         {/* <TouchableOpacity
           style={{
-            position: 'absolute',
+            position: 'absolute',Q
             left: 360,
             top: 50,
           }}>

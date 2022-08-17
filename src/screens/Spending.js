@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
-import React from 'react';
+import React,{useState} from 'react';
 import Colors from '../config/Colors';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import HealthCard from '../components/HealthCard';
@@ -7,9 +7,10 @@ import Images from '../config/Images';
 
 const Spending = ({ route }) => {
 
- const Country = route.params
+ const Country = route?.params?.item;
  
- const data = Country.item;
+//  const data = Country?.item;
+
 
  return (
     <>
@@ -30,7 +31,7 @@ const Spending = ({ route }) => {
               fontWeight: '400',
             }}>
             {
-              !data ? "Country and Region" : data.name 
+              !Country ? "Country and Region" : Country.name
             }
           </Text>
         </View>
