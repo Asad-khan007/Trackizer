@@ -19,7 +19,7 @@ import CardCop from '../components/CardCop';
 import TipsCard from '../components/TipsCard';
 import CountryPicker, {DARK_THEME} from 'react-native-country-picker-modal';
 
-const Home = () => {
+const Home = ({navigation}) => {
   const [option, setOption] = useState('option1');
   const [foused, setFoused] = useState(false);
   const [country, setCountry] = useState(null);
@@ -51,7 +51,7 @@ const Home = () => {
             rotation={216}
             size={290}
             width={13}
-            fill={60}
+            fill={68}
             tintColor={Colors.primary}
             backgroundColor="#3d5875"
             padding={10}
@@ -92,7 +92,7 @@ const Home = () => {
           <CountryPicker
             onSelect={item => {
               setCountry(item);
-              console.log(item.name, item.region);
+              navigation.navigate("Spend",{ item })
             }}
             theme={DARK_THEME}
             containerButtonStyle={{

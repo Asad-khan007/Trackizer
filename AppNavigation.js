@@ -172,6 +172,7 @@ const HomeStack = () => {
       }}>
       <Stack.Screen name="Mytabs" component={Mytabs} />
       <Stack.Screen name="Setting" component={Setting} />
+      <Stack.Screen name="Spend" component={Spending} />
       <Stack.Screen name="Card" component={Card} />
     </Stack.Navigator>
   );

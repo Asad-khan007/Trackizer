@@ -5,7 +5,11 @@ import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import HealthCard from '../components/HealthCard';
 import Images from '../config/Images';
 
-const Spending = () => {
+const Spending = ({ route }) => {
+
+ const {item} = route.params;
+
+  console.log("props paramaters",item)
   
   return (
     <>
@@ -25,7 +29,9 @@ const Spending = () => {
               color: Colors.gray20,
               fontWeight: '400',
             }}>
-            Country and Region
+            {/* {
+              !item ? ("Country and Region") : (item.name, item.region) 
+            } */}
           </Text>
         </View>
         <View
@@ -119,19 +125,19 @@ const Spending = () => {
             <HealthCard
               icon={Images.recovered}
               title="Recovered Cases"
-              progress={'20%'}
+              progress={'58%'}
               color={Colors.primary}
             />
           <HealthCard
-            icon={Images.confirmed}
-            title="Confirmed Cases"
-            progress={'45%'}
-            color={Colors.green}
+              icon={Images.confirmed}
+              title="Confirmed Cases"
+              progress={'16%'}
+              color={Colors.green}
           />
           <HealthCard
             icon={Images.deceased}
             title="Decesed Cases"
-            progress={'35%'}
+            progress={'22%'}
             color={Colors.purple}
           />
         </View>
