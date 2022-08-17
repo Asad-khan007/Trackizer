@@ -7,11 +7,11 @@ import Images from '../config/Images';
 
 const Spending = ({ route }) => {
 
- const {item} = route.params;
+ const Country = route.params
+ 
+ const data = Country.item;
 
-  console.log("props paramaters",item)
-  
-  return (
+ return (
     <>
       <SafeAreaView
         style={{flex: 1, backgroundColor: Colors.gray80, alignItems: 'center'}}>
@@ -29,9 +29,9 @@ const Spending = ({ route }) => {
               color: Colors.gray20,
               fontWeight: '400',
             }}>
-            {/* {
-              !item ? ("Country and Region") : (item.name, item.region) 
-            } */}
+            {
+              !data ? "Country and Region" : data.name 
+            }
           </Text>
         </View>
         <View

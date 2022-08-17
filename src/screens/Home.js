@@ -46,7 +46,7 @@ const Home = ({navigation}) => {
             }}
           />
         </TouchableOpacity> */}
-        <View style={{marginTop: 15}}>
+        <View style={{marginTop: 15 }}>
           <AnimatedCircularProgress
             rotation={216}
             size={290}
