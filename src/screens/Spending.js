@@ -1,5 +1,5 @@
 import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
-import React from 'react';
+import React,{useState} from 'react';
 import Colors from '../config/Colors';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import HealthCard from '../components/HealthCard';
@@ -7,11 +7,16 @@ import Images from '../config/Images';
 
 const Spending = ({ route }) => {
 
+<<<<<<< HEAD
  let {item} = route.params;
+=======
+ const Country = route?.params?.item;
+ 
+//  const data = Country?.item;
+>>>>>>> 669c8027372efd949879023ee6f29615db4e576f
 
-  console.log("props paramaters",item)
-  
-  return (
+
+ return (
     <>
       <SafeAreaView
         style={{flex: 1, backgroundColor: Colors.gray80, alignItems: 'center'}}>
@@ -29,9 +34,9 @@ const Spending = ({ route }) => {
               color: Colors.gray20,
               fontWeight: '400',
             }}>
-            {/* {
-              !item ? ("Country and Region") : (item.name, item.region) 
-            } */}
+            {
+              !Country ? "Country and Region" : Country.name
+            }
           </Text>
         </View>
         <View

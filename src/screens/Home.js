@@ -38,7 +38,27 @@ const Home = ({navigation}) => {
       alignItems:"center"
      }} > 
       <View style={styles.headerContainer}>
+<<<<<<< HEAD
         <View style={{marginTop: 15}}>
+=======
+        {/* <TouchableOpacity
+          style={{
+            position: 'absolute',Q
+            left: 360,
+            top: 50,
+          }}>
+          <Image
+            source={Images.setting}
+            style={{
+              height: 24,
+              tintColor: Colors.gray20,
+              width: 24,
+              zIndex: 99,
+            }}
+          />
+        </TouchableOpacity> */}
+        <View style={{marginTop: 15 }}>
+>>>>>>> 669c8027372efd949879023ee6f29615db4e576f
           <AnimatedCircularProgress
             rotation={216}
             size={290}
