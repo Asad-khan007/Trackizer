@@ -7,7 +7,7 @@ import Images from '../config/Images';
 
 const Spending = ({ route }) => {
 
- const {item} = route.params;
+ let {item} = route.params;
 
   console.log("props paramaters",item)
   

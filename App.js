@@ -4,6 +4,7 @@ import AppNavigation from './AppNavigation';
 import Start from './src/screens/Start';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import AppNavigatoin from './AppNavigation';
+import Toast from 'react-native-toast-message'
 
 class App extends Component {
   render() {
@@ -19,8 +20,8 @@ class App extends Component {
           {/* <Provider store={store}>
             <Loader />
             <Nav />
-            <Toast />
           </Provider> */}
+          <Toast />
         </GestureHandlerRootView>
       </KeyboardAvoidingView>
     );

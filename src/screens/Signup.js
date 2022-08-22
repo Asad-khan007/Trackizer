@@ -1,12 +1,71 @@
-import {StyleSheet, Text, View, Image, TextInput, Dimensions, ScrollView} from 'react-native';
-import React from 'react';
+import {StyleSheet, Text, View, Image, TextInput, Dimensions, ScrollView, Alert} from 'react-native';
+import React,{useState,useEffect} from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
+import validate from '../config/Common';
+import Toast from 'react-native-toast-message';
+
 // import {useNavigation} from '@react-navigation/native';
 
 const Signup = ({navigation}) => {
   // const navigation = useNavigation();
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [valide, setValide] = useState(true);
+
+
+  // function emailChecker() {
+  //   if(validate(email)){
+  //     setValide(true)
+  //   } else {
+  //     Toast.show({
+  //           text1:"Successfully",
+  //           text2:"Done",
+  //           type:"success",
+  //           onHide: 3000
+  //         })
+  //   }
+  // }
+
+// const SignUp = () => {
+//   emailCheck()
+// }
+
+const onPress = () => {
+  if(validate(email)){
+    Toast.show({
+      text1: "Complete Success",
+      type:"success",
+      visibilityTime: 3000
+    })
+  } else {
+    setValide(false)
+    Toast.show({
+      text1:"Please Enter Valide Email",
+      text2:"this email is not valide",
+      type:"error",
+      visibilityTime: 3000
+    })
+  }
+}
+
+// const onPress = () => {
+//   if(!validate(email)){
+//     setValide(false);
+//     Toast.show(ToastError("Please enter Valide Email"))
+//   }
+// }
+
+// useEffect(()=>{
+//   Toast.show({
+//     text1:"Successfully",
+//     text2:"Done",
+//     type:"success",
+//     onHide: 3000
+//   })
+// },[])
 
   return (
     <ScrollView style={{flex: 1, backgroundColor:Colors.gray80}}>
@@ -45,7 +104,7 @@ const Signup = ({navigation}) => {
           placeholderTextColor={Colors.gray60}
           placeholder="Enter your email"
           style={{
-            borderColor: '#fff',
+            borderColor: valide ? '#fff' : "red",
             borderWidth: 1,
             borderRadius: 10,
             width: '100%',
@@ -54,7 +113,16 @@ const Signup = ({navigation}) => {
             paddingHorizontal: 10,
             color: Colors.white,
           }}
+          value={email}
+          onChangeText={(text)=>{
+            setEmail(text)
+          }}
         />
+        {
+          !valide && (
+            <Text style={{color:"red", marginTop:5,marginLeft:5}} >Email is not valide</Text>
+          ) 
+        }
         <Text
           style={{
             paddingLeft: 10,
@@ -76,6 +144,10 @@ const Signup = ({navigation}) => {
             fontSize: 18,
             paddingHorizontal: 10,
             color: Colors.white,
+          }}
+          value={password}
+          onChangeText={(text)=>{
+            setPassword(text)
           }}
         />
       </View>
@@ -127,41 +199,11 @@ const Signup = ({navigation}) => {
         use 8 and more characters with a mix of letters, numbers & symbols
       </Text>
       <PrimaryButton
-        onPress={() => {
-          navigation.navigate('HomeApp');
-        }}
+        onPress={onPress}
         color={Colors.primary}
         title="Get Started , It's free !"
       />
-      {/* <View
-        style={{
-          // height: 90,
-          // width: 330,
-          // position: 'absolute',
-          // top: Dimensions.get("screen").height / 48,
-          margin: 10,
-          alignItems: 'center',
-          marginTop: 60,
-        }}>
-        <Text
-          style={{
-            paddingBottom: '3%',
-            fontSize: 16,
-            color: 'white',
-            fontWeight: '500',
-            paddingVertical: 10,
-          }}>
-          Already have an account ?
-        </Text>
-        <PrimaryButton
-          onPress={() => {
-            navigation.navigate('Login');
-          }}
-          color={Colors.gray60}
-          title="Sign Up"
-         
-        />
-      </View> */}
+
     </View>
     </ScrollView>
   );
