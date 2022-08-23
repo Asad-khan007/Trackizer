@@ -4,11 +4,10 @@ import LoadingAction from '../Actions/LoadingAction';
 import AuthAction from '../Actions/AuthAction';
 import {NavigationServices} from '../../Config';
 import {CommonActions} from '@react-navigation/native';
-import FireStore from '@react-native-firebase/firestore';
 import {Alert} from '../../Components';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {ToastSuccess} from '../../config/Common';
+import {ToastError, ToastSuccess} from '../../config/Common';
 
 class AuthMiddleware extends React.Component {
   constructor(props) {
@@ -30,11 +29,7 @@ class AuthMiddleware extends React.Component {
       } catch (e) {
         console.log('erorrrr =======', e);
         dispatch(LoadingAction.LoadingFalse());
-        Toast.show({
-          text1: e.message,
-          type: 'error',
-          visibilityTime: 3000,
-        });
+        Toast.show(ToastError(e.message));
         callback(e.message);
       }
     };

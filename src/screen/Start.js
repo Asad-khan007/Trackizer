@@ -1,15 +1,10 @@
-import {
-  Text, 
-  View, 
-  Image
-} from 'react-native';
+import {Text, View, Image} from 'react-native';
 import React from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 
 const Start = ({navigation}) => {
-
   // const Navigation = useNavigation();
 
   return (
@@ -63,12 +58,9 @@ const Start = ({navigation}) => {
           title="Get Started"
           color={Colors.primary}
           onPress={() => {
-            navigation.navigate('Login');
+            navigation.navigate('PreLogin');
           }}
         />
-        {/* <PrimaryButton onPress={()=>{
-          navigation.navigate("Login")
-        }} title="Already have an account ?" color={Colors.dark} /> */}
       </View>
     </View>
   );

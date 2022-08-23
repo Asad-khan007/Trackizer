@@ -17,6 +17,7 @@ import Toast from 'react-native-toast-message';
 import {SIGNUP} from '../Store/constants';
 import {useDispatch, useSelector} from 'react-redux';
 import AuthMiddleware from '../Store/Middleware/AuthMiddleware';
+import CountryPicker, {DARK_THEME} from 'react-native-country-picker-modal';
 
 // import {useNavigation} from '@react-navigation/native';
 
@@ -163,45 +164,6 @@ const Signup = ({navigation}) => {
             }}
           />
         </View>
-
-        {/* <View
-        style={{
-          flexDirection: 'row',
-          width: 335,
-          height: 5,
-          marginTop: 20,
-          justifyContent: 'space-between',
-        }}> */}
-        {/* <View
-          style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            paddingRight: 2,
-            borderTopLeftRadius: 10,
-            borderBottomLeftRadius: 10,
-            width: 80,
-            height: 5,
-          }}></View>
-        <View
-          style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            width: 80,
-            height: 5,
-          }}></View>
-        <View
-          style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            width: 80,
-            height: 5,
-          }}></View>
-        <View
-          style={{
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            borderTopRightRadius: 10,
-            borderBottomRightRadius: 10,
-            width: 80,
-            height: 5,
-          }}></View> */}
-        {/* </View> */}
         <Text
           style={{
             paddingTop: 25,
@@ -210,10 +172,42 @@ const Signup = ({navigation}) => {
           }}>
           use 8 and more characters with a mix of letters, numbers & symbols
         </Text>
+        <CountryPicker
+          onSelect={item => {
+            setCountry(item);
+            navigation.navigate('Spend', {item});
+          }}
+          theme={DARK_THEME}
+          containerButtonStyle={{
+            backgroundColor: Colors.gray60,
+            height: 32,
+            width: 145,
+            alignItems: 'center',
+            justifyContent: 'center',
+            borderRadius: 14,
+            // marginTop: 15,
+            marginRight: '60%',
+          }}
+        />
         <PrimaryButton
-          onPress={null}
+          onPress={() => {
+            navigation.navigate('UserStack');
+          }}
           color={Colors.primary}
           title="Get Started , It's free !"
+          buttonStyle={{
+            top: Dimensions.get('window').height / 6,
+          }}
+        />
+        <PrimaryButton
+          onPress={() => {
+            navigation.navigate('Login');
+          }}
+          title="Already have an account ?"
+          color={Colors.dark}
+          buttonStyle={{
+            marginTop: Dimensions.get('screen').height / 5.8,
+          }}
         />
       </View>
     </ScrollView>

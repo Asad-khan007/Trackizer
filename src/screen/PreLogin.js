@@ -4,7 +4,7 @@ import Images from '../config/Images';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 
-const Start = ({navigation}) => {
+const PreLogin = ({navigation}) => {
   return (
     <View
       style={{
@@ -28,7 +28,7 @@ const Start = ({navigation}) => {
           alignItems: 'center',
           justifyContent: 'center',
           // paddingTop: 28,
-          marginTop: Dimensions.get("screen").height / 3 ,
+          marginTop: Dimensions.get('screen').height / 3,
         }}>
         <PrimaryButton
           image={Images.apple}
@@ -66,4 +66,4 @@ const Start = ({navigation}) => {
   );
 };
 
-export default Start;
+export default PreLogin;

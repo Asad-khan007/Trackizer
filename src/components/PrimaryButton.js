@@ -2,20 +2,23 @@ import {Text, TouchableOpacity, Image} from 'react-native';
 import React from 'react';
 import Colors from '../config/Colors';
 
-const PrimaryButton = ({onPress, color, image, title}) => {
+const PrimaryButton = ({onPress, color, buttonStyle, image, title}) => {
   return (
     <TouchableOpacity
       onPress={onPress}
-      style={{
-        width: 324,
-        height: 50,
-        backgroundColor: color,
-        borderRadius: 25,
-        alignItems: 'center',
-        justifyContent: 'center',
-        marginVertical: 10,
-        flexDirection: 'row',
-      }}>
+      style={[
+        buttonStyle,
+        {
+          width: 324,
+          height: 50,
+          backgroundColor: color,
+          borderRadius: 25,
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginVertical: 10,
+          flexDirection: 'row',
+        },
+      ]}>
       {image && (
         <Image
           resizeMode="contain"

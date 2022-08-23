@@ -7,13 +7,11 @@ import {
   KeyboardAvoidingView,
 } from 'react-native';
 import React, {Component} from 'react';
-import AppNavigation from './AppNavigation';
-import Start from './src/screens/Start';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
-import AppNavigatoin from './AppNavigation';
 import Toast from 'react-native-toast-message';
 import {Provider} from 'react-redux';
-import AppNavigatoin from './AppNavigation';
+// import App from './Nav';
+import AppNavigation from './Nav';
 import stores from './src/Store';
 import {PersistGate} from 'redux-persist/integration/react';
 import Loader from './src/config/Loader';
@@ -24,7 +22,7 @@ class App extends Component {
   render() {
     return (
       <Wrapper style={{flex: 1}}>
-        <GestureHandlerRootView style={{flex: 1}}>
+        <GestureHandlerRootView style={{flex: 1, backgroundColor: 'black'}}>
           <StatusBar
             translucent={true}
             backgroundColor="transparent"
@@ -32,9 +30,8 @@ class App extends Component {
           />
           <Provider store={store}>
             <PersistGate persistor={persistor}>
-              <AppNavigatoin />
               <Loader />
-              <Nav />
+              <AppNavigation />
               <Toast />
             </PersistGate>
           </Provider>
