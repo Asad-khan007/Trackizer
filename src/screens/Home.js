@@ -34,13 +34,11 @@ const Home = ({navigation}) => {
       
       return (
     <ScrollView style={styles.mainContainer}>
-     <View style={{
-      alignItems:"center"
-     }} > 
+     
       <View style={styles.headerContainer}>
-<<<<<<< HEAD
+
         <View style={{marginTop: 15}}>
-=======
+
         {/* <TouchableOpacity
           style={{
             position: 'absolute',Q
@@ -58,7 +56,7 @@ const Home = ({navigation}) => {
           />
         </TouchableOpacity> */}
         <View style={{marginTop: 15 }}>
->>>>>>> 669c8027372efd949879023ee6f29615db4e576f
+
           <AnimatedCircularProgress
             rotation={216}
             size={290}

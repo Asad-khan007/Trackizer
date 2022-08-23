@@ -7,13 +7,13 @@ import Images from '../config/Images';
 
 const Spending = ({ route }) => {
 
-<<<<<<< HEAD
- let {item} = route.params;
-=======
+
+//  let {item} = route.params;
+
  const Country = route?.params?.item;
  
 //  const data = Country?.item;
->>>>>>> 669c8027372efd949879023ee6f29615db4e576f
+
 
 
  return (

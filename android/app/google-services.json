@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "476309041887",
+    "project_id": "trackizer-b1b8a",
+    "storage_bucket": "trackizer-b1b8a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:476309041887:android:6260f9ec6d7865c6352f6a",
+        "android_client_info": {
+          "package_name": "com.trackizer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "476309041887-ph9vkj6035cj266b2t0dfd9dtsk28klb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.trackizer",
+            "certificate_hash": "518f8a61799bcf622f3ad9f25259427e566e4444"
+          }
+        },
+        {
+          "client_id": "476309041887-4hk4pp36edlb9rhafi18lrrj39l7s37q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArnKng6Sfnoq3uUbJT8TcFIZD-sz_kgIY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "476309041887-4hk4pp36edlb9rhafi18lrrj39l7s37q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
