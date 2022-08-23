@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 const {width, height} = Dimensions.get('screen');
 
 export default function Loader() {
-  const loader = useSelector(state => state?.reducer?.loader || false);
+  const loader = useSelector(state => state?.LoadingReducer?.loading);
   if (!loader) return null;
   return (
     <View

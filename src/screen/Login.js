@@ -167,7 +167,9 @@ const Login = ({navigation}) => {
           buttonStyle={{
             marginTop: 40,
           }}
-          onPress={null}
+          onPress={() => {
+            navigation.navigate('UserStack');
+          }}
           color={Colors.primary}
           title="Login"
         />
@@ -175,7 +177,7 @@ const Login = ({navigation}) => {
           onPress={() => {
             navigation.navigate('Signup');
           }}
-          title="don't have account Sign up"
+          title="don't have account Sign up here "
           color={Colors.dark}
           buttonStyle={{
             marginTop: Dimensions.get('screen').height / 4.2,
