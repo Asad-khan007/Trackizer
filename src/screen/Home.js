@@ -8,7 +8,7 @@ import {
   ScrollView,
   Dimensions,
 } from 'react-native';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
@@ -17,11 +17,23 @@ import CardCop2 from '../components/CardCop2';
 import CardCop from '../components/CardCop';
 import TipsCard from '../components/TipsCard';
 import CountryPicker, {DARK_THEME} from 'react-native-country-picker-modal';
+import {useDispatch, useSelector} from 'react-redux';
+import LoadingAction from '../Store/Actions/LoadingAction';
+import NavService from '../config/NavService';
 
 const Home = () => {
   const [option, setOption] = useState('option1');
   const [foused, setFoused] = useState(false);
   const [country, setCountry] = useState(null);
+
+  const dispatch = useDispatch();
+  const loading = useSelector(state => state.LoadingReducer.loading);
+
+  useEffect(() => {
+    if (loading) {
+      dispatch(LoadingAction.LoadingFalse());
+    }
+  }, []);
 
   return (
     <ScrollView style={styles.mainContainer}>
@@ -30,6 +42,23 @@ const Home = () => {
           alignItems: 'center',
         }}>
         <View style={styles.headerContainer}>
+          <TouchableOpacity
+            onPress={() => NavService.navigate('Option')}
+            style={{
+              alignSelf: 'flex-end',
+              position: 'absolute',
+              top: 25,
+              right: 25,
+              zIndex: 69,
+            }}>
+            <Image
+              source={Images.setting}
+              style={{
+                height: 30,
+                width: 30,
+              }}
+            />
+          </TouchableOpacity>
           <View style={{marginTop: 15}}>
             <AnimatedCircularProgress
               rotation={216}

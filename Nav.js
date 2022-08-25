@@ -1,7 +1,6 @@
 import * as React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
+import {CommonActions, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
-// import {NavigationService} from './src/config/NavService';
 import NavigationService from './src/config/NavService';
 import Signup from './src/screen/Signup';
 import Mytabs from './src/components/bottomTab';
@@ -10,6 +9,11 @@ import Spending from './src/screen/Spending';
 import PreLogin from './src/screen/PreLogin';
 import Start from './src/screen/Start';
 import Login from './src/screen/Login';
+import Option from './src/screen/Option';
+import {useSelector, useDispatch} from 'react-redux';
+import {useEffect} from 'react';
+import {useState} from 'react';
+import NavService from './src/config/NavService';
 
 const Stack = createStackNavigator();
 
@@ -31,41 +35,36 @@ const UserStack = () => {
       <Stack.Screen name="BottomTabs" component={Mytabs} />
       <Stack.Screen name="Home" component={Home} />
       <Stack.Screen name="Spending" component={Spending} />
+      <Stack.Screen name="Option" component={Option} />
     </Stack.Navigator>
   );
 };
 
-class AppNavigation extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  render() {
-    // const loading = useSelector(state => state.LoaderReducer.loading);
-    // let {loading} = this.props;
-    return (
-      <>
-        <NavigationContainer
-          ref={ref => NavigationService.setTopLevelNavigator(ref)}>
-          <Stack.Navigator
-            screenOptions={{headerShown: false}}
-            initialRouteName={'AuthStack'}>
-            <Stack.Screen name="AuthStack" component={AuthStack} />
-            <Stack.Screen name="BottomTabs" component={Mytabs} />
-            <Stack.Screen name="UserStack" component={UserStack} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      </>
-    );
-  }
-}
+const AppNavigation = () => {
+  const [state, setState] = useState('AuthStack');
+  const user = useSelector(state => state.AuthReducer.user);
+  useEffect(() => {
+    if (user.length > 0) {
+      setState('UserStack');
+      NavService.navigate('UserStack');
+    }
+  }, []);
+  return (
+    <>
+      <NavigationContainer
+        ref={ref => NavigationService.setTopLevelNavigator(ref)}>
+        <Stack.Navigator
+          screenOptions={{headerShown: false}}
+          initialRouteName={state}>
+          <Stack.Screen name="AuthStack" component={AuthStack} />
+          <Stack.Screen name="UserStack" component={UserStack} />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </>
+  );
+};
 
 export default AppNavigation;
-
-// const mapStateToProps = state => ({
-//   loading: state.LoaderReducer.loading,
-// });
-// const mapDispatchToProps = dispatch => ({});
 
 // import React, {Component} from 'react';
 

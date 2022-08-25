@@ -86,12 +86,20 @@ class AuthMiddleware extends React.Component {
         dispatch(AuthAction.Loginin(res.user.uid));
         dispatch(LoadingAction.LoadingFalse());
         callback(res.user);
-        console.log('User sign in success', res);
+        Toast.show({
+          text1: 'User Login successfully',
+          type: 'success',
+          visibilityTime: 3000,
+        });
       } catch (e) {
         console.log('erorr =======', e.message);
         callback(e);
         dispatch(LoadingAction.LoadingFalse());
-        console.warn('error', e.message);
+        Toast.show({
+          text1: e.message,
+          type: 'error',
+          visibilityTime: 3000,
+        });
       }
     };
   }

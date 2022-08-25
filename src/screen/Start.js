@@ -1,11 +1,28 @@
 import {Text, View, Image} from 'react-native';
-import React from 'react';
+import React, {useEffect} from 'react';
 import Images from '../config/Images';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
+import {useSelector, useDispatch} from 'react-redux';
+import NavService from '../config/NavService';
+import {LOADING_TRUE} from '../Store/constants';
+import LoadingAction from '../Store/Actions/LoadingAction';
+// import NavService from '../config/NavService';
 
-const Start = ({navigation}) => {
-  // const Navigation = useNavigation();
+const Start = () => {
+  const user = useSelector(state => state.AuthReducer.user);
+  console.log(user);
+
+  const dispatch = useDispatch();
+
+  dispatch(LoadingAction.LoadingTrue());
+  // useEffect(() => {
+  //   setTimeout(() => {
+  //     if (user) {
+  //       navigation.navigate('UserStack');
+  //     }
+  //   }, 2000);
+  // }, []);
 
   return (
     <View
@@ -57,9 +74,7 @@ const Start = ({navigation}) => {
         <PrimaryButton
           title="Get Started"
           color={Colors.primary}
-          onPress={() => {
-            navigation.navigate('PreLogin');
-          }}
+          onPress={() => NavService.navigate('PreLogin')}
         />
       </View>
     </View>

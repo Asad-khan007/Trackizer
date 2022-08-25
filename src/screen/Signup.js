@@ -19,6 +19,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import AuthMiddleware from '../Store/Middleware/AuthMiddleware';
 import CountryPicker, {DARK_THEME} from 'react-native-country-picker-modal';
 import NavService from '../config/NavService';
+import {CommonActions} from '@react-navigation/native';
 
 // import {useNavigation} from '@react-navigation/native';
 
@@ -48,7 +49,7 @@ const Signup = ({navigation}) => {
               email,
               password,
               callback: response => {
-                if (response.user) {
+                if (response.uid) {
                   navigation.dispatch(
                     CommonActions.reset({
                       index: 0,
@@ -60,7 +61,7 @@ const Signup = ({navigation}) => {
                     }),
                   );
                 } else {
-                  console.log(response);
+                  console.log('User Sign in Account UID', response.uid);
                 }
                 console.log('response', response.message);
               },

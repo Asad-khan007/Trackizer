@@ -17,6 +17,7 @@ import Toast from 'react-native-toast-message';
 import {SIGNUP} from '../Store/constants';
 import {useDispatch, useSelector} from 'react-redux';
 import AuthMiddleware from '../Store/Middleware/AuthMiddleware';
+import {CommonActions} from '@react-navigation/native';
 
 // import {useNavigation} from '@react-navigation/native';
 
@@ -29,23 +30,31 @@ const Login = ({navigation}) => {
 
   const dispatch = useDispatch();
 
+  const validate = email => {
+    const expression =
+      /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+(\.[a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]+)*|"((([\t]*\r\n)?[\t]+)?([\x01-\x08\x0b\x0c\x0e-\x1f\x7f\x21\x23-\x5b\x5d-\x7e\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|\\[\x01-\x09\x0b\x0c\x0d-\x7f\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]))*(([\t]*\r\n)?[\t]+)?")@(([a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\d\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.)+([a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]|[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF][a-z\d\-._~\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF]*[a-z\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])\.?$/i;
+
+    return expression.test(String(email).toLowerCase());
+  };
+
   function onSubmit() {
     // let {name, email, confirmed, password, phone, date} = this.state;
     if (email && password) {
       if (validate(email)) {
         if (password.length >= 8) {
           dispatch(
-            AuthMiddleware.SignUp({
+            AuthMiddleware.Login({
               email,
               password,
               callback: response => {
-                if (response.user) {
+                console.log('User screen uid===', response.uid);
+                if (response.uid) {
                   navigation.dispatch(
                     CommonActions.reset({
                       index: 0,
                       routes: [
                         {
-                          name: 'App',
+                          name: 'UserStack',
                         },
                       ],
                     }),
@@ -53,7 +62,7 @@ const Login = ({navigation}) => {
                 } else {
                   console.log(response);
                 }
-                console.log('response', response.message);
+                console.log('=====response', response);
               },
             }),
           );
@@ -147,6 +156,7 @@ const Login = ({navigation}) => {
           <TextInput
             placeholderTextColor={Colors.gray60}
             placeholder="Enter your password"
+            secureTextEntry
             style={{
               borderColor: '#fff',
               borderWidth: 1,
@@ -167,9 +177,7 @@ const Login = ({navigation}) => {
           buttonStyle={{
             marginTop: 40,
           }}
-          onPress={() => {
-            navigation.navigate('UserStack');
-          }}
+          onPress={onSubmit}
           color={Colors.primary}
           title="Login"
         />
