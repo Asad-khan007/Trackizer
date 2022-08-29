@@ -3,28 +3,26 @@ import {Text, View, TouchableOpacity, Image} from 'react-native';
 import {getStatusBarHeight} from 'react-native-status-bar-height';
 // import Images from '../assets/Images';
 import {Colors, NavService} from '../config';
+import Icons from '../config/Icons';
 
 export function AppBackground({
-  editeIcon,
-  route,
   children,
   title,
   back = false,
-  nav = '',
   marginHorizontal,
   rightIconNav = () => {},
+  onPress = () => {},
   profile = true,
   edit = false,
 }) {
-  const onPress = () => {
-    nav.length
-      ? NavService.navigate(nav)
-      : back
-      ? NavService.goBack()
-      : NavService.openDrawer();
-  };
+  // const onPress = () => {
+  //   nav.length
+  //     ? NavService.navigate(nav)
+  //     : back
+  //     ? NavService.goBack()
+  //     : NavService.openDrawer();
+  // };
 
-  //  console.log("==========="+ route.name)
   return (
     <View style={{flex: 1}}>
       <View
@@ -43,7 +41,7 @@ export function AppBackground({
             style={{
               position: 'absolute',
               alignItems: 'center',
-              backgroundColor: Colors.darkGray,
+              backgroundColor: '#353542',
               borderRadius: 10,
               left: 20,
               width: 38,
@@ -51,12 +49,12 @@ export function AppBackground({
               justifyContent: 'center',
             }}>
             <Image
-              source={back ? require('../assets/back.png') : Icons.menu}
+              source={Icons.back}
               style={{
                 width: 25,
                 height: 25,
                 resizeMode: 'contain',
-                tintColor: Colors.white,
+                // tintColor: '#353542',
               }}
             />
           </TouchableOpacity>
@@ -64,7 +62,7 @@ export function AppBackground({
           <View>
             <Text
               style={{
-                color: Colors.grey,
+                color: '#353542',
                 fontWeight: '700',
                 fontSize: 18,
               }}>
@@ -85,7 +83,7 @@ export function AppBackground({
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 10,
-                backgroundColor: Colors.darkGray,
+                backgroundColor: '#353542',
               }}>
               <Image
                 source={rightIcon}
@@ -110,10 +108,10 @@ export function AppBackground({
                 alignItems: 'center',
                 justifyContent: 'center',
                 borderRadius: 10,
-                backgroundColor: Colors.darkGray,
+                backgroundColor: '#353542',
               }}>
               <Image
-                source={editeIcon}
+                source={Icons.budget}
                 style={{
                   width: 22,
                   height: 22,

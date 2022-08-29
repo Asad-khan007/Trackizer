@@ -1,6 +1,6 @@
 import {Text, View, Image} from 'react-native';
 import React, {useEffect} from 'react';
-import Images from '../config/Images';
+import Icons from '../config/Icons';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 import {useSelector, useDispatch} from 'react-redux';
@@ -14,15 +14,7 @@ const Start = () => {
   console.log(user);
 
   const dispatch = useDispatch();
-
   dispatch(LoadingAction.LoadingTrue());
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     if (user) {
-  //       navigation.navigate('UserStack');
-  //     }
-  //   }, 2000);
-  // }, []);
 
   return (
     <View
@@ -41,7 +33,7 @@ const Start = () => {
             position: 'absolute',
             top: 40,
           }}
-          source={Images.logo}
+          source={Icons.logo}
         />
       </View>
       <View
@@ -50,7 +42,7 @@ const Start = () => {
           justifyContent: 'center',
           paddingTop: 18,
         }}>
-        <Image source={Images.frame} />
+        <Image source={Icons.frame} />
       </View>
 
       <Text

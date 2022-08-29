@@ -9,7 +9,6 @@ import {
   Alert,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import Images from '../config/Images';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 import validate from '../config/Common';
@@ -18,6 +17,7 @@ import {SIGNUP} from '../Store/constants';
 import {useDispatch, useSelector} from 'react-redux';
 import AuthMiddleware from '../Store/Middleware/AuthMiddleware';
 import {CommonActions} from '@react-navigation/native';
+import Icons from '../config/Icons';
 
 // import {useNavigation} from '@react-navigation/native';
 
@@ -99,7 +99,7 @@ const Login = ({navigation}) => {
           paddingHorizontal: 20,
         }}>
         <Image
-          source={Images.logo}
+          source={Icons.logo}
           style={{
             height: 30,
             width: 185,

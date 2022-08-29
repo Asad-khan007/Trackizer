@@ -1,22 +1,18 @@
 import {StyleSheet, Text, View, SafeAreaView} from 'react-native';
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import Colors from '../config/Colors';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import HealthCard from '../components/HealthCard';
-import Images from '../config/Images';
+import Icons from '../config/Icons';
 
-const Spending = ({ route }) => {
+const Spending = ({route}) => {
+  //  let {item} = route.params;
 
+  const Country = route?.params?.item;
 
-//  let {item} = route.params;
+  //  const data = Country?.item;
 
- const Country = route?.params?.item;
- 
-//  const data = Country?.item;
-
-
-
- return (
+  return (
     <>
       <SafeAreaView
         style={{flex: 1, backgroundColor: Colors.gray80, alignItems: 'center'}}>
@@ -34,9 +30,7 @@ const Spending = ({ route }) => {
               color: Colors.gray20,
               fontWeight: '400',
             }}>
-            {
-              !Country ? "Country and Region" : Country.name
-            }
+            {!Country ? 'Country and Region' : Country.name}
           </Text>
         </View>
         <View
@@ -127,20 +121,20 @@ const Spending = ({ route }) => {
             paddingVertical: 5,
             justifyContent: 'center',
           }}>
-            <HealthCard
-              icon={Images.recovered}
-              title="Recovered Cases"
-              progress={'58%'}
-              color={Colors.primary}
-            />
           <HealthCard
-              icon={Images.confirmed}
-              title="Confirmed Cases"
-              progress={'16%'}
-              color={Colors.green}
+            icon={Icons.recovered}
+            title="Recovered Cases"
+            progress={'58%'}
+            color={Colors.primary}
           />
           <HealthCard
-            icon={Images.deceased}
+            icon={Icons.confirmed}
+            title="Confirmed Cases"
+            progress={'16%'}
+            color={Colors.green}
+          />
+          <HealthCard
+            icon={Icons.deceased}
             title="Decesed Cases"
             progress={'22%'}
             color={Colors.purple}

@@ -1,4 +1,4 @@
-export default Images = {
+const Icons = {
   logo: require('../assets/logo.png'),
   youtube: require('../assets/youtube.png'),
   spotify: require('../assets/spotify.png'),
@@ -8,7 +8,7 @@ export default Images = {
   netflix: require('../assets/netflix.png'),
   oneDrive: require('../assets/onedrive.png'),
   frame: require('../assets/Frame.png'),
-  home: require('../assets/Home.png'),
+  home: require('../assets/mainHome.png'),
   budget: require('../assets/Budgets.png'),
   card: require('../assets/Card.png'),
   calendar: require('../assets/Calender.png'),
@@ -20,4 +20,7 @@ export default Images = {
   confirmed: require('../assets/virus.png'),
   recovered: require('../assets/recovered.png'),
   deceased: require('../assets/dead.png'),
+  back: require('../assets/back.png'),
 };
+
+export default Icons;

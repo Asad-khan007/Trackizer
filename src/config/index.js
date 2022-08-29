@@ -1,7 +1,7 @@
 import Colors from './Colors';
-import Images from './Images';
+import Icons from './Icons';
 
 export default {
   Colors,
-  Images,
+  Icons,
 };

@@ -9,7 +9,7 @@ import {
   Dimensions,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import Images from '../config/Images';
+import Icons from '../config/Icons';
 import Colors from '../config/Colors';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import CardCop3 from '../components/CardCop3';
@@ -52,7 +52,7 @@ const Home = () => {
               zIndex: 69,
             }}>
             <Image
-              source={Images.setting}
+              source={Icons.setting}
               style={{
                 height: 30,
                 width: 30,
@@ -101,6 +101,7 @@ const Home = () => {
               onSelect={item => {
                 setCountry(item);
                 console.log(item.name, item.region);
+                NavService.navigate('Spending', {item});
               }}
               theme={DARK_THEME}
               containerButtonStyle={{
@@ -208,7 +209,7 @@ const Home = () => {
               justifyContent: 'center',
               marginBottom: 20,
             }}>
-            <Image source={Images.map} resizeMode="contain" />
+            <Image source={Icons.map} resizeMode="contain" />
           </View>
         )}
       </View>

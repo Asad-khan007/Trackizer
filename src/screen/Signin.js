@@ -1,6 +1,6 @@
 import {StyleSheet, Text, View, Image, TextInput, Switch} from 'react-native';
 import React, {useState} from 'react';
-import Images from '../config/Images';
+import Icons from '../config/Icons';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 import {NavigationContainer} from '@react-navigation/native';
@@ -17,7 +17,7 @@ const Signin = ({navigation}) => {
         paddingHorizontal: 20,
       }}>
       <Image
-        source={Images.logo}
+        source={Icons.logo}
         style={{
           height: 30,
           width: 185,

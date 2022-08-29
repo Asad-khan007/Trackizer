@@ -18,4 +18,5 @@ const Colors = {
   title: '#83839C',
   btnColor: 'rgba(255, 255, 255, 0.1)',
 };
+
 export default Colors;

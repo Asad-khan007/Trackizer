@@ -9,7 +9,8 @@ import {
   Alert,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
-import Images from '../config/Images';
+// import Images from '../config/Images';
+import Icons from '../config/Icons';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 import validate from '../config/Common';
@@ -100,7 +101,7 @@ const Signup = ({navigation}) => {
           paddingHorizontal: 20,
         }}>
         <Image
-          source={Images.logo}
+          source={Icons.logo}
           style={{
             height: 30,
             width: 185,

@@ -1,6 +1,6 @@
 import {Text, View, Image, TouchableOpacity, Dimensions} from 'react-native';
 import React from 'react';
-import Images from '../config/Images';
+import Icons from '../config/Icons';
 import Colors from '../config/Colors';
 import PrimaryButton from '../components/PrimaryButton';
 
@@ -14,7 +14,7 @@ const PreLogin = ({navigation}) => {
         backgroundColor: Colors.gray80,
       }}>
       <Image
-        source={Images.logo}
+        source={Icons.logo}
         style={{
           height: 30,
           width: 185,
@@ -31,17 +31,17 @@ const PreLogin = ({navigation}) => {
           marginTop: Dimensions.get('screen').height / 3,
         }}>
         <PrimaryButton
-          image={Images.apple}
+          image={Icons.apple}
           title="Sign up with Apple"
           color={Colors.gray70}
         />
         <PrimaryButton
-          image={Images.google}
+          image={Icons.google}
           title="Sign up with Google"
           color={'#898F9C'}
         />
         <PrimaryButton
-          image={Images.facebook}
+          image={Icons.facebook}
           title="Sign up with Facebook"
           color={'#4267B2'}
         />
