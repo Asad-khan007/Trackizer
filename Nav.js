@@ -1,5 +1,5 @@
-import React from 'react';
-import {CommonActions, NavigationContainer} from '@react-navigation/native';
+import React, {useState} from 'react';
+import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import NavigationService from './src/config/NavService';
 import Signup from './src/screen/Signup';
@@ -11,9 +11,6 @@ import Start from './src/screen/Start';
 import Login from './src/screen/Login';
 import Option from './src/screen/Option';
 import {useSelector, useDispatch} from 'react-redux';
-import {useEffect} from 'react';
-import {useState} from 'react';
-import NavService from './src/config/NavService';
 
 const Stack = createStackNavigator();
 
@@ -40,15 +37,19 @@ const UserStack = () => {
   );
 };
 
-const AppNavigation = () => {
-  const [state, setState] = useState('AuthStack');
+const AppNavigation = ({route}) => {
   const user = useSelector(state => state.AuthReducer.user);
-  useEffect(() => {
-    if (user) {
-      setState('UserStack');
-      NavService.navigate('UserStack');
-    }
-  }, []);
+  const [state, setState] = useState(!user ? 'AuthStack' : 'UserStack');
+
+  // const dispatch = useDispatch();
+
+  // useEffect(() => {
+  //   if (user) {
+  //     setState('UserStack');
+  //     NavService.navigate('UserStack');
+  //     dispatch(LoadingAction.LoadingFalse());
+  //   }
+  // }, []);
 
   return (
     <>

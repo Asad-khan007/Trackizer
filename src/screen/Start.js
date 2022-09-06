@@ -12,19 +12,6 @@ import AuthAction from '../Store/Actions/AuthAction';
 // import NavService from '../config/NavService';
 
 const Start = () => {
-  const user = useSelector(state => state.AuthReducer.user);
-  console.log(user);
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (user) {
-      dispatch(LoadingAction.LoadingTrue());
-    } else {
-      dispatch(LoadingAction.LoadingFalse());
-    }
-  }, []);
-
   return (
     <View
       style={{

@@ -21,21 +21,12 @@ import {useDispatch, useSelector} from 'react-redux';
 import LoadingAction from '../Store/Actions/LoadingAction';
 import NavService from '../config/NavService';
 import Metrix from '../config/Metrix';
+import AuthAction from '../Store/Actions/AuthAction';
 
 const Home = () => {
   const [option, setOption] = useState('option1');
   const [foused, setFoused] = useState(false);
   const [country, setCountry] = useState(null);
-
-  const dispatch = useDispatch();
-  const loading = useSelector(state => state.LoadingReducer.loading);
-  const user = useSelector(state => state.AuthReducer.user);
-
-  useEffect(() => {
-    if (loading && user) {
-      dispatch(LoadingAction.LoadingFalse());
-    }
-  }, []);
 
   return (
     <ScrollView style={styles.mainContainer}>

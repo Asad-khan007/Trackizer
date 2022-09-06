@@ -7,11 +7,7 @@ import Icons from '../config/Icons';
 import Metrix from '../config/Metrix';
 
 const Spending = ({route}) => {
-  //  let {item} = route.params;
-
   const Country = route?.params?.item;
-
-  //  const data = Country?.item;
 
   return (
     <>
@@ -117,10 +113,10 @@ const Spending = ({route}) => {
         </View>
         <View
           style={{
-            height: 360,
-            width: 338,
+            height: Metrix.VerticalSize(300),
+            width: Metrix.HorizontalSize(320),
             // backgroundColor: 'red',
-            marginTop: 50,
+            marginTop: Metrix.VerticalSize(65),
             borderRadius: 10,
             alignItems: 'center',
             paddingHorizontal: 2,
