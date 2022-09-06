@@ -11,7 +11,7 @@ export function AppBackground({
   back = false,
   marginHorizontal,
   rightIconNav = () => {},
-  onPress = () => {},
+  onPress,
   profile = true,
   edit = false,
 }) {

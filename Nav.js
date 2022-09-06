@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import {CommonActions, NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import NavigationService from './src/config/NavService';
@@ -44,11 +44,12 @@ const AppNavigation = () => {
   const [state, setState] = useState('AuthStack');
   const user = useSelector(state => state.AuthReducer.user);
   useEffect(() => {
-    if (user.length > 0) {
+    if (user) {
       setState('UserStack');
       NavService.navigate('UserStack');
     }
   }, []);
+
   return (
     <>
       <NavigationContainer

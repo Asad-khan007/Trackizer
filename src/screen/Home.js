@@ -20,6 +20,7 @@ import CountryPicker, {DARK_THEME} from 'react-native-country-picker-modal';
 import {useDispatch, useSelector} from 'react-redux';
 import LoadingAction from '../Store/Actions/LoadingAction';
 import NavService from '../config/NavService';
+import Metrix from '../config/Metrix';
 
 const Home = () => {
   const [option, setOption] = useState('option1');
@@ -28,9 +29,10 @@ const Home = () => {
 
   const dispatch = useDispatch();
   const loading = useSelector(state => state.LoadingReducer.loading);
+  const user = useSelector(state => state.AuthReducer.user);
 
   useEffect(() => {
-    if (loading) {
+    if (loading && user) {
       dispatch(LoadingAction.LoadingFalse());
     }
   }, []);
@@ -77,7 +79,7 @@ const Home = () => {
               alignItems: 'center',
               justifyContent: 'center',
               position: 'absolute',
-              top: Dimensions.get('window').height / 5.5,
+              top: Metrix.VerticalSize(140),
             }}>
             <Text
               style={{
@@ -118,7 +120,7 @@ const Home = () => {
           <View
             style={{
               width: '90%',
-              height: 80,
+              height: Metrix.VerticalSize(80),
               marginTop: 5,
               alignItems: 'center',
               flexDirection: 'row',
@@ -225,9 +227,10 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.gray100,
   },
   headerContainer: {
-    height: 455,
-    width: 420,
+    height: Metrix.VerticalSize(460),
+    width: Metrix.HorizontalSize(380),
     backgroundColor: Colors.gray80,
+    // backgroundColor: 'red',
     borderBottomRightRadius: 40,
     borderBottomLeftRadius: 40,
     alignItems: 'center',

@@ -7,6 +7,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import NavService from '../config/NavService';
 import {LOADING_TRUE} from '../Store/constants';
 import LoadingAction from '../Store/Actions/LoadingAction';
+import AuthMiddleware from '../Store/Middleware/AuthMiddleware';
+import AuthAction from '../Store/Actions/AuthAction';
 // import NavService from '../config/NavService';
 
 const Start = () => {
@@ -14,7 +16,14 @@ const Start = () => {
   console.log(user);
 
   const dispatch = useDispatch();
-  dispatch(LoadingAction.LoadingTrue());
+
+  useEffect(() => {
+    if (user) {
+      dispatch(LoadingAction.LoadingTrue());
+    } else {
+      dispatch(LoadingAction.LoadingFalse());
+    }
+  }, []);
 
   return (
     <View

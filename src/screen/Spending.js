@@ -4,6 +4,7 @@ import Colors from '../config/Colors';
 import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import HealthCard from '../components/HealthCard';
 import Icons from '../config/Icons';
+import Metrix from '../config/Metrix';
 
 const Spending = ({route}) => {
   //  let {item} = route.params;
@@ -15,14 +16,18 @@ const Spending = ({route}) => {
   return (
     <>
       <SafeAreaView
-        style={{flex: 1, backgroundColor: Colors.gray80, alignItems: 'center'}}>
+        style={{
+          flex: 1,
+          backgroundColor: Colors.gray100,
+          alignItems: 'center',
+        }}>
         <View
           style={{
-            height: 24,
-            width: 157,
+            height: Metrix.VerticalSize(24),
+            width: Metrix.HorizontalSize(150),
             alignItems: 'center',
             justifyContent: 'center',
-            marginTop: 30,
+            marginTop: Metrix.VerticalSize(30),
           }}>
           <Text
             style={{
@@ -35,8 +40,9 @@ const Spending = ({route}) => {
         </View>
         <View
           style={{
-            marginTop: 10,
-            height: 160,
+            marginTop: Metrix.VerticalSize(30),
+            height: Metrix.VerticalSize(160),
+            // backgroundColor: 'red',
           }}>
           <AnimatedCircularProgress
             rotation={270}
@@ -90,7 +96,7 @@ const Spending = ({route}) => {
             // backgroundColor: 'red',
             alignItems: 'center',
             position: 'absolute',
-            top: 230,
+            top: Metrix.VerticalSize(200),
           }}>
           <Text
             style={{
