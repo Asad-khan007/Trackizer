@@ -24,8 +24,8 @@ import Icons from '../config/Icons';
 const Login = ({navigation}) => {
   // const navigation = useNavigation();
 
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('tracker@gmail.com');
+  const [password, setPassword] = useState('12345678');
   const [valide, setValide] = useState(true);
 
   const dispatch = useDispatch();

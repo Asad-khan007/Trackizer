@@ -16,6 +16,7 @@ const Colors = {
   green: '#00FAD9',
   black: '#282833',
   title: '#83839C',
+  dark: '#000000',
   btnColor: 'rgba(255, 255, 255, 0.1)',
 };
 

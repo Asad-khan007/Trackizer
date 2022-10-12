@@ -21,6 +21,7 @@ const Icons = {
   recovered: require('../assets/recovered.png'),
   deceased: require('../assets/dead.png'),
   back: require('../assets/back.png'),
+  avatar: require('../assets/avatar.png'),
 };
 
 export default Icons;

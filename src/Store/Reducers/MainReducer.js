@@ -5,13 +5,17 @@ import {
   GET_STORIES,
   VIEW_HIDE,
   VIEW,
+  GET_DATA,
+  SET_DATA,
+  CLEAR_DATA,
 } from '../constants.js';
 
 const initialState = {
   user: null,
+  country: '',
 };
 
-export default function AuthReducer(state = initialState, action) {
+export default function MainReducer(state = initialState, action) {
   switch (action.type) {
     case LOGIN:
       state = {
@@ -30,18 +34,29 @@ export default function AuthReducer(state = initialState, action) {
     case LOGOUT:
       state = {
         user: null,
+        country: null,
       };
       break;
 
-    case VIEW_HIDE:
+    case GET_DATA:
       state = {
-        view: false,
+        country: action.payload,
       };
+      break;
 
-    case VIEW:
+    case SET_DATA:
       state = {
-        view: true,
+        ...state,
+        country: action.payload,
       };
+      break;
+
+    case CLEAR_DATA:
+      state = {
+        state: null,
+        country: null,
+      };
+      break;
 
     default:
       break;

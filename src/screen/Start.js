@@ -9,9 +9,13 @@ import {LOADING_TRUE} from '../Store/constants';
 import LoadingAction from '../Store/Actions/LoadingAction';
 import AuthMiddleware from '../Store/Middleware/AuthMiddleware';
 import AuthAction from '../Store/Actions/AuthAction';
+import AppAction from '../Store/Actions/AppAction';
 // import NavService from '../config/NavService';
 
 const Start = () => {
+  // const user = useSelector(state => state.MainReducer.country);
+  // console.log(user);
+
   return (
     <View
       style={{

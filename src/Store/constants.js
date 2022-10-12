@@ -4,3 +4,6 @@ export const SIGNUP = 'SIGNUP';
 export const LOADING_FALSE = 'LOADING_FALSE';
 export const LOADING_TRUE = 'LOADING_TRUE';
 export const GET_STORIES = 'GET_STORIES';
+export const GET_DATA = 'GET_DATA';
+export const CLEAR_DATA = 'CLEAR_DATA';
+export const SET_DATA = 'SET_DATA';

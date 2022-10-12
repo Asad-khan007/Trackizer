@@ -5,9 +5,11 @@ import {AnimatedCircularProgress} from 'react-native-circular-progress';
 import HealthCard from '../components/HealthCard';
 import Icons from '../config/Icons';
 import Metrix from '../config/Metrix';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
 
 const Spending = ({route}) => {
   const Country = route?.params?.item;
+  const data = route?.params?.CountryData;
 
   return (
     <>
@@ -16,6 +18,7 @@ const Spending = ({route}) => {
           flex: 1,
           backgroundColor: Colors.gray100,
           alignItems: 'center',
+          marginTop: getStatusBarHeight(),
         }}>
         <View
           style={{
@@ -44,7 +47,7 @@ const Spending = ({route}) => {
             rotation={270}
             size={300}
             width={14}
-            fill={80}
+            fill={data?.total > 200000 ? 80 : 80}
             tintColor={Colors.primary}
             backgroundColor="#3d5875"
             padding={10}
@@ -58,7 +61,7 @@ const Spending = ({route}) => {
             rotation={274}
             size={260}
             width={14}
-            fill={20}
+            fill={data?.death > 20000 ? 30 : 68}
             tintColor={Colors.green}
             backgroundColor="#3d5875"
             padding={10}
@@ -74,7 +77,7 @@ const Spending = ({route}) => {
             rotation={280}
             size={221}
             width={14}
-            fill={30}
+            fill={data?.positiveIncrease > 200000 ? 78 : 48}
             tintColor={Colors.purple}
             backgroundColor="#3d5875"
             padding={10}
@@ -89,10 +92,9 @@ const Spending = ({route}) => {
         </View>
         <View
           style={{
-            // backgroundColor: 'red',
             alignItems: 'center',
             position: 'absolute',
-            top: Metrix.VerticalSize(200),
+            top: Metrix.VerticalSize(210),
           }}>
           <Text
             style={{
@@ -100,7 +102,7 @@ const Spending = ({route}) => {
               fontSize: 24,
               fontWeight: '600',
             }}>
-            202026121
+            {data ? 3501394 : 358394}
           </Text>
           <Text
             style={{
@@ -116,7 +118,7 @@ const Spending = ({route}) => {
             height: Metrix.VerticalSize(300),
             width: Metrix.HorizontalSize(320),
             // backgroundColor: 'red',
-            marginTop: Metrix.VerticalSize(65),
+            marginTop: Metrix.VerticalSize(100),
             borderRadius: 10,
             alignItems: 'center',
             paddingHorizontal: 2,
@@ -126,19 +128,19 @@ const Spending = ({route}) => {
           <HealthCard
             icon={Icons.recovered}
             title="Recovered Cases"
-            progress={'58%'}
+            progress={data?.positiveIncrease > 20000 ? '60%' : '68%'}
             color={Colors.primary}
           />
           <HealthCard
             icon={Icons.confirmed}
             title="Confirmed Cases"
-            progress={'16%'}
+            progress={data?.total > 20000 ? '70%' : '52%'}
             color={Colors.green}
           />
           <HealthCard
             icon={Icons.deceased}
             title="Decesed Cases"
-            progress={'22%'}
+            progress={data?.death > 2000 ? '55%' : '32%'}
             color={Colors.purple}
           />
         </View>

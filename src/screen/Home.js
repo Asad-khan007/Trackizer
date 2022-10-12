@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Dimensions,
+  Modal,
 } from 'react-native';
 import React, {useState, useEffect} from 'react';
 import Icons from '../config/Icons';
@@ -21,15 +22,31 @@ import {useDispatch, useSelector} from 'react-redux';
 import LoadingAction from '../Store/Actions/LoadingAction';
 import NavService from '../config/NavService';
 import Metrix from '../config/Metrix';
-import AuthAction from '../Store/Actions/AuthAction';
+import {getStatusBarHeight} from 'react-native-status-bar-height';
+import {DatabaseMiddleware} from '../Store/Middleware';
 
 const Home = () => {
   const [option, setOption] = useState('option1');
   const [foused, setFoused] = useState(false);
   const [country, setCountry] = useState(null);
+  const [countryData, setCountryData] = useState();
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(
+      DatabaseMiddleware.GetData({
+        callback: response => {
+          if (response?.status == 200) {
+            setCountryData(response.data);
+          }
+        },
+      }),
+    );
+  }, []);
 
   return (
-    <ScrollView style={styles.mainContainer}>
+    <ScrollView bounces={false} style={styles.mainContainer}>
       <View
         style={{
           alignItems: 'center',
@@ -57,7 +74,7 @@ const Home = () => {
               rotation={216}
               size={290}
               width={13}
-              fill={80}
+              fill={countryData?.total > 200000 ? 80 : 62}
               tintColor={Colors.primary}
               backgroundColor="#3d5875"
               padding={10}
@@ -78,7 +95,7 @@ const Home = () => {
                 fontSize: 40,
                 fontWeight: '700',
               }}>
-              5515,151
+              {countryData?.total}
             </Text>
             <Text
               style={{
@@ -94,7 +111,7 @@ const Home = () => {
               onSelect={item => {
                 setCountry(item);
                 console.log(item.name, item.region);
-                NavService.navigate('Spending', {item});
+                NavService.navigate('Spending', {item, countryData});
               }}
               theme={DARK_THEME}
               containerButtonStyle={{
@@ -115,10 +132,12 @@ const Home = () => {
               marginTop: 5,
               alignItems: 'center',
               flexDirection: 'row',
+              alignSelf: 'center',
+              marginRight: 20,
             }}>
-            <CardCop />
-            <CardCop2 />
-            <CardCop3 />
+            <CardCop data={countryData?.death} />
+            <CardCop2 data={countryData?.total} />
+            <CardCop3 data={countryData?.positiveIncrease} />
           </View>
         </View>
         <View
@@ -216,6 +235,7 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: Colors.gray100,
+    marginTop: getStatusBarHeight(),
   },
   headerContainer: {
     height: Metrix.VerticalSize(460),

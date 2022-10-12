@@ -182,7 +182,7 @@ const Signup = ({navigation}) => {
           }}>
           use 8 and more characters with a mix of letters, numbers & symbols
         </Text>
-        <CountryPicker
+        {/* <CountryPicker
           onSelect={item => {
             setCountry(item);
             navigation.navigate('Spend', {item});
@@ -198,7 +198,7 @@ const Signup = ({navigation}) => {
             // marginTop: 15,
             marginRight: '60%',
           }}
-        />
+        /> */}
         <PrimaryButton
           onPress={onSubmit}
           color={Colors.primary}

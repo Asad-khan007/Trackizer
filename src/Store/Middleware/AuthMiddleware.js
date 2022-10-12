@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Auth from '@react-native-firebase/auth';
 import LoadingAction from '../Actions/LoadingAction';
 import AuthAction from '../Actions/AuthAction';
@@ -8,8 +8,9 @@ import {Alert} from '../../Components';
 import {Toast} from 'react-native-toast-message/lib/src/Toast';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {ToastError, ToastSuccess} from '../../config/Common';
+import AppAction from '../Actions/AppAction';
 
-class AuthMiddleware extends React.Component {
+class AuthMiddleware extends Component {
   constructor(props) {
     super(props);
   }
@@ -31,13 +32,14 @@ class AuthMiddleware extends React.Component {
           });
         } else console.warn('response', res.user);
       } catch (e) {
-        console.log('erorrrr =======', e);
+        if (e.code === 'auth/email-already-in-use') {
+          Toast.show({
+            text1: 'That email address is already in use!',
+            type: 'error',
+            visibilityTime: 3000,
+          });
+        }
         dispatch(LoadingAction.LoadingFalse());
-        Toast.show({
-          text1: e.message,
-          type: 'error',
-          visibilityTime: 3000,
-        });
         callback(e.message);
       }
     };
@@ -57,6 +59,7 @@ class AuthMiddleware extends React.Component {
           .catch(err => {
             dispatch(LoadingAction.LoadingFalse());
             callback(err.message);
+            dispatch(AppAction.ClearData());
           });
       } catch (e) {
         console.log('erorrrr =======', e);
@@ -66,23 +69,12 @@ class AuthMiddleware extends React.Component {
     };
   }
 
-  // static getStories({callback}) {
-  //   return asyun dispatch => {
-  //     dispatch(LoadingAction.LoadingTrue());
-  //     try {
-
-  //     } catch (error) {
-
-  //     }
-  //   }
-  // }
-
   static Login({callback, email, password}) {
     return async dispatch => {
       dispatch(LoadingAction.LoadingTrue());
       try {
         let res = await Auth().signInWithEmailAndPassword(email, password);
-        console.warn('User Sign in success', res.user.uid);
+        // console.warn('User Sign in success', res.user.uid);
         dispatch(AuthAction.Loginin(res.user.uid));
         dispatch(LoadingAction.LoadingFalse());
         callback(res.user);
@@ -93,13 +85,21 @@ class AuthMiddleware extends React.Component {
         });
       } catch (e) {
         console.log('erorr =======', e.message);
+        if (e.code === 'auth/invalid-email') {
+          Toast.show({
+            text1: 'That email address is invalid!',
+            type: 'error',
+            visibilityTime: 3000,
+          });
+        } else if (e.code === 'auth/user-not-found') {
+          Toast.show({
+            text1: 'There is no existing user record.',
+            type: 'error',
+            visibilityTime: 3000,
+          });
+        }
         callback(e);
         dispatch(LoadingAction.LoadingFalse());
-        Toast.show({
-          text1: e.message,
-          type: 'error',
-          visibilityTime: 3000,
-        });
       }
     };
   }

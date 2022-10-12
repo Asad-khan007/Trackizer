@@ -2,13 +2,13 @@ import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import Colors from '../config/Colors';
 
-const CardCop3 = ({subs, color}) => {
+const CardCop3 = ({subs, color, data}) => {
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardLight}></View>
       <View style={styles.titleContainer}>
         <Text style={styles.title}>Decesed</Text>
-        <Text style={styles.title2}>59465</Text>
+        <Text style={styles.title2}>{data}</Text>
       </View>
     </View>
   );
@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
     // marginLeft: 20,
     alignSelf: 'center',
     paddingLeft: 10,
-
   },
   title2: {
     height: 20,

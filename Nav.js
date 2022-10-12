@@ -38,18 +38,8 @@ const UserStack = () => {
 };
 
 const AppNavigation = ({route}) => {
-  const user = useSelector(state => state.AuthReducer.user);
+  const user = useSelector(state => state.MainReducer.user);
   const [state, setState] = useState(!user ? 'AuthStack' : 'UserStack');
-
-  // const dispatch = useDispatch();
-
-  // useEffect(() => {
-  //   if (user) {
-  //     setState('UserStack');
-  //     NavService.navigate('UserStack');
-  //     dispatch(LoadingAction.LoadingFalse());
-  //   }
-  // }, []);
 
   return (
     <>
