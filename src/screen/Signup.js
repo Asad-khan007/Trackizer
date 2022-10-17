@@ -158,6 +158,7 @@ const Signup = ({navigation}) => {
           <TextInput
             placeholderTextColor={Colors.gray60}
             placeholder="Enter your password"
+            secureTextEntry={true}
             style={{
               borderColor: '#fff',
               borderWidth: 1,

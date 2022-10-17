@@ -1,4 +1,8 @@
 import Axios from 'axios';
+import store from '../Store';
+import Toast from 'react-native-toast-message';
+import NavService from './NavService';
+import AppAction from '../Store/Actions/AppAction';
 var baseUrl = 'https://api.covidtracking.com/v1/';
 
 Axios.interceptors.response.use(
@@ -9,21 +13,13 @@ Axios.interceptors.response.use(
     if (response.status == 401) {
       try {
         console.log(response, '====Response====');
-        // let {
-        //   AuthReducer: {
-        //     user: {refreshToken},
-        //   },
-        // } = store.getState();
-        // store.dispatch(
-        //   AuthMiddleware.RefreshToken({
-        //     refreshToken,
-        //     callback: token => {
-        //       rest.config.headers.Authorization = 'Bearer ' + token;
-        //       Axios(rest.config);
-        //     },
-        //   }),
-        // );
-        // // });
+        store.dispatch(AppAction.ClearData());
+        Toast.show({
+          text1: 'Session timeout please login !',
+          type: 'error',
+          visibilityTime: 3000,
+        });
+        NavService.reset('AuthStack');
       } catch (err) {
         console.log('Error= ===', err);
       }

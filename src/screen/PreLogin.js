@@ -33,12 +33,12 @@ const PreLogin = ({navigation}) => {
         <PrimaryButton
           image={Icons.apple}
           title="Sign up with Apple"
-          color={Colors.gray70}
+          color={'#66b447'}
         />
         <PrimaryButton
           image={Icons.google}
           title="Sign up with Google"
-          color={'#898F9C'}
+          color={'#4285F4'}
         />
         <PrimaryButton
           image={Icons.facebook}

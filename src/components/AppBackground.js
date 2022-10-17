@@ -55,7 +55,6 @@ export function AppBackground({
               }}
             />
           </TouchableOpacity>
-
           <View>
             <Text
               style={{
